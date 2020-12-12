@@ -14,5 +14,5 @@ app.use(express.json())
 app.use('/api',router)
 
 app.listen(port, ()=>{
-    console.log(`I 'am listening on port ${port}`)
+    console.log(`I 'am listening on port http://localhost:${port}`)
 })
