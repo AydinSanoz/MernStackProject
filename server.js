@@ -1,14 +1,15 @@
 const express = require("express")
+require("dotenv").config()
 const connectDB = require("./model/connectDB")
 const router = require("./routes/router")
-require("dotenv").config()
-require("./model/connectDB")
+
+
 
 const app = express()
 const port = process.env.PORT
+connectDB()
 
 // responds to /api router
-connectDB()
 
 app.use(express.json())
 app.use('/api',router)
