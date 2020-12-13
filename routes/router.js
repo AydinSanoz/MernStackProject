@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const AuthRouter = require("./AuthRouter")
+const ProfileRouter = require("./ProfileRouter")
  
 
 // Only Api EndPoint /api 
@@ -20,7 +21,7 @@ router.use("/auth", AuthRouter)
  * @desc  Route for profile
  */
 
- //router.use("/profile",ProfileRouter)
+ router.use("/profile",ProfileRouter)
 
  /**
   * @route api/book
