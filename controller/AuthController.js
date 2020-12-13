@@ -34,7 +34,7 @@ exports.auth_register = async (req, res) => {
 	await user.save();
 
 	// TODO:   Error handling for saving
-	res.send('Registered Successfully');
+	res.json({message: "Registered Successfully"});
 };
 
 exports.auth_login = async (req, res, next) => {
@@ -63,12 +63,12 @@ exports.auth_login = async (req, res, next) => {
 	// Json Web token
 	
 	jwt.sign(
-		{ user }, process.env.JWT_PRIVATE_KEY,{ expiresIn: 3600 },(err,token)=>{
+		{ user }, process.env.JWT_PRIVATE_KEY,{ expiresIn: 7200 },(err,token)=>{
 			if(err){
 				res.status(400)
 				res.json({errors : [{message : "unknown error occurred"}]})
 			}
-			res.json({'token' : token})
+			res.json({'X_Auth-Token' : token})
 
 		});
 	
