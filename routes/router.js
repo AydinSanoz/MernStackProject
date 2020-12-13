@@ -6,8 +6,6 @@ const ProfileRouter = require("./ProfileRouter")
 
 // Only Api EndPoint /api 
 
-
-
 /**
  * @route api/auth
  * @desc Route for auth

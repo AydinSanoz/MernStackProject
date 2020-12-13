@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
 
-const authMiddleware = async (req,res,next)=>{
+const authMiddleware = async (req, res, next)=>{
 
     // get token
-    const token = req.header("token")
+    const token = req.header("X-Auth-Token")
     // Return error if token doesn't exist
     if(!token){
         return res.status(401).json({message : "No token"})
@@ -14,7 +14,7 @@ const authMiddleware = async (req,res,next)=>{
         if (err) {
           return res.status(401).json({ msg: "Invalid Token" });
         } else {
-          req.decodedUser = decodedToken.userData;
+          req.decodedUser = decodedToken.user;
           next();
         }
       });
