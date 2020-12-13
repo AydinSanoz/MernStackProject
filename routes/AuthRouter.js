@@ -2,7 +2,9 @@ const express = require("express")
 const router = express.Router()
 const AuthController = require("../controller/AuthController")
 const {check} = require('express-validator')
-const isValid =  require("../middlewares/validationCheck")
+const { emailPasswordValidation } = require("../middlewares/validationMiddleware")
+
+
 
 // routes for /api/auth
 
@@ -13,13 +15,7 @@ const isValid =  require("../middlewares/validationCheck")
  */
 
 
-router.post("/register", 
-
-[
-    check("email", "Invalid email").isEmail(),
-    check("password","Password should be min 6 character").isLength({min : 6})
-],
-AuthController.auth_register)
+router.post("/register", emailPasswordValidation, AuthController.auth_register)
 
 /**
  * @route POST /api/auth/login
@@ -28,13 +24,6 @@ AuthController.auth_register)
  */
 
 
-router.post("/login", 
-[
-    check("email","Invalid email").isEmail(),
-    check("password", "Password should be min 6 character").isLength({
-        min :6
-    })
-],
-AuthController.auth_login)
+router.post("/login", emailPasswordValidation, AuthController.auth_login)
 
 module.exports = router;
