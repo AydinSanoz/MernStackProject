@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const AuthController = require("../controller/AuthController")
 const {check} = require('express-validator')
-const { emailPasswordValidation } = require("../middlewares/validationMiddleware")
+const {emailPasswordCheck} = require("../middlewares/validationMiddleware")
 
 
 
@@ -15,7 +15,7 @@ const { emailPasswordValidation } = require("../middlewares/validationMiddleware
  */
 
 
-router.post("/register", emailPasswordValidation, AuthController.auth_register)
+router.post("/register", emailPasswordCheck, AuthController.auth_register)
 
 /**
  * @route POST /api/auth/login
@@ -24,6 +24,6 @@ router.post("/register", emailPasswordValidation, AuthController.auth_register)
  */
 
 
-router.post("/login", emailPasswordValidation, AuthController.auth_login)
+router.post("/login", emailPasswordCheck, AuthController.auth_login)
 
 module.exports = router;
