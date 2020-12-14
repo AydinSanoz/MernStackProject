@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const AuthRouter = require("./AuthRouter")
 const ProfileRouter = require("./ProfileRouter")
+const BookRouter = require("./BookRouter")
  
 
 // Only Api EndPoint /api 
@@ -25,6 +26,6 @@ router.use("/auth", AuthRouter)
   * @route api/book
   * @desc Route for book
   */
-// router.use("/book", BookRouter)
+router.use("/books", BookRouter)
 
 module.exports = router;

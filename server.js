@@ -12,7 +12,8 @@ const router = require("./routes/router")
 connectDB()
 
 
-app.use(cors()) //to pass cors policy localhost:3000 to localhost:5000 in mern project
+//to pass cors policy localhost:3000 to localhost:5000 in mern project
+app.use(cors()) 
 
 // responds to /api router
 app.use(express.json())

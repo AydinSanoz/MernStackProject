@@ -14,8 +14,9 @@ const BookList = () => {
 
   useEffect(() => {
     fetchData("/api/books").then((data) => {
+      console.log("books", data)
       setBookList(data?.bookList);
-    });
+    }).catch(err=>console.log("bookList fetch error",err))
   }, []);
 
   useEffect(() => {
