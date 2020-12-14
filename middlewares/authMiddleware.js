@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const authMiddleware = async (req, res, next)=>{
 
     // get token
-    const token = req.header("X-Auth-Token")
+    const token = req.header("token")
     // Return error if token doesn't exist
     if(!token){
         return res.status(401).json({message : "No token"})

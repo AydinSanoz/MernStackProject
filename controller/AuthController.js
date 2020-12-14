@@ -68,7 +68,7 @@ exports.auth_login = async (req, res, next) => {
 				res.status(400)
 				res.json({errors : [{message : "unknown error occurred"}]})
 			}
-			res.json({'X_Auth-Token' : token})
+			res.json({'token' : token})
 
 		});
 	
