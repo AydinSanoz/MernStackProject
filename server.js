@@ -13,7 +13,7 @@ connectDB()
 
 
 //to pass cors policy localhost:3000 to localhost:5000 in mern project
-app.use(cors()) 
+// app.use(cors()) 
 
 // responds to /api router
 app.use(express.json())
